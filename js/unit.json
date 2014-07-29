@@ -1,0 +1,70 @@
+﻿{
+  "unit":[
+    {
+      "unit_id": "00001",
+      "unit_name": "大和",
+      "unit_type": "bb",
+      "status": {
+        "firepower": 139,
+        "antiair": 104,
+        "torpedo": 10,
+        "antisubmarine": 10,
+        "armor": 118,
+        "accuracy": 56,
+        "hitpoint": 99,
+        "speed": 10
+      },
+      "slot": {
+        "slot_1": "",
+        "slot_2": "",
+        "slot_3": "",
+        "slot_4": ""
+      },
+      "desc": "日本帝國海軍主力戰艦"
+    },
+    {
+      "unit_id": "00002",
+      "unit_name": "雪風",
+      "unit_type": "dd",
+      "status": {
+        "firepower": 20,
+        "antiair": 97,
+        "torpedo": 89,
+        "antisubmarine": 103,
+        "armor": 20,
+        "accuracy": 76,
+        "hitpoint": 43,
+        "speed": 43
+      },
+      "slot": {
+        "slot_1": "",
+        "slot_2": "",
+        "slot_3": "",
+        "slot_4": ""
+      },
+      "desc": "日本帝國海軍驅逐艦，被稱為不死鳥。"
+    },
+    {
+      "unit_id": "00003",
+      "unit_name": "赤城",
+      "unit_type": "cv",
+      "status": {
+        "firepower": 0,
+        "antiair": 40,
+        "torpedo": 0,
+        "antisubmarine": 0,
+        "armor": 76,
+        "accuracy": 50,
+        "hitpoint": 75,
+        "speed": 21
+      },
+      "slot": {
+        "slot_1": "",
+        "slot_2": "",
+        "slot_3": "",
+        "slot_4": ""
+      },
+      "desc": "日本帝國海軍主力航艦，在中途島被擊沉。"
+    }
+  ]
+}
