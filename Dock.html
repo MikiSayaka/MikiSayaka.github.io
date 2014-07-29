@@ -9,11 +9,13 @@
     <title>Ship Collection</title>
   </head>
   <body ng-app>
-    <div class="main_div">
-      
-    </div>
-    <div class="btn-group" ng-controller="topMenu">
-      <button type="button" class="btn btn-info" ng-repeat="d in data">{{ d.menu_name }}</button>
+    <div class="container space">
+      <div class="btn-group" ng-controller="topMenu">
+        <button type="button" class="btn btn-info" ng-repeat="d in data">{{ d.menu_name }}</button>
+      </div>
+      <div class="space">
+        <img src="img/unit/u_00000.png" class="img-circle right">
+      </div>
     </div>
   </body>
 </html>
