@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Persona 4 The Golden Edition</title>
+    <script src="lib/js/react.js"></script>
+    <script src="lib/js/JSXTransformer.js"></script>
+    <script src="lib/js/jquery.js"></script>
+  </head>
+  <body>
+  <div id="content"></div>
+    <script type="text/jsx">
+      // tutorial1.js
+      var CommentBox = React.createClass({
+          render: function() {
+            return (<div className="commentBox">Hello, world! I am a CommentBox.</div>);
+          }
+        });
+      React.render(<CommentBox/>,document.getElementById('content'));
+
+      // tutorial1-raw.js
+      var CommentBox = React.createClass({displayName: 'CommentBox', render: function() {
+          return (React.createElement('div', {className: "commentBox"}, "Hello, world! I am a CommentBox."));
+        }
+      });
+      React.render(React.createElement(CommentBox, null), document.getElementById('content'));
+    </script>
+  </body>
+</html>
