@@ -17,5 +17,13 @@
   "dependencies": {
     "react": "~0.13.2",
     "jquery": "~2.1.4"
+  },
+  "overrides": {
+    "react": {
+      "main": [
+        "JSXTransformer.js",
+        "react.js"
+      ]
+    }
   }
 }

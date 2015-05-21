@@ -8,22 +8,23 @@
     <script src="lib/js/jquery.js"></script>
   </head>
   <body>
-  <div id="content"></div>
+    <div id="content1"></div>
+    <div id="content2"></div>
     <script type="text/jsx">
       // tutorial1.js
       var CommentBox = React.createClass({
           render: function() {
-            return (<div className="commentBox">Hello, world! I am a CommentBox.</div>);
+            return (<div className="commentBox">Hello, world! I am a CommentBox that in the content1.</div>);
           }
         });
-      React.render(<CommentBox/>,document.getElementById('content'));
+      React.render(<CommentBox/>,document.getElementById('content1'));
 
       // tutorial1-raw.js
       var CommentBox = React.createClass({displayName: 'CommentBox', render: function() {
-          return (React.createElement('div', {className: "commentBox"}, "Hello, world! I am a CommentBox."));
+          return (React.createElement('div', {className: "commentBox"}, "Hello, world! I am a CommentBox that in the content2."));
         }
       });
-      React.render(React.createElement(CommentBox, null), document.getElementById('content'));
+      React.render(React.createElement(CommentBox, null), document.getElementById('content2'));
     </script>
   </body>
 </html>
