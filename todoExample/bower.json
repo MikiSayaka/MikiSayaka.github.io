@@ -1,0 +1,25 @@
+{
+  "name": "mikiTodo",
+  "version": "1.0.0",
+  "homepage": "https://github.com/MikiSayaka/MikiSayaka.github.io",
+  "description": "This is a TODO web application.",
+  "authors": [
+    "MikiSayaka"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "thorax": "~2.3.2",
+    "jquery": "~2.1.4",
+    "underscore": "~1.8.3",
+    "zepto": "~1.1.6",
+    "handlebars": "~3.0.3",
+    "backbone": "~1.2.0"
+  }
+}
