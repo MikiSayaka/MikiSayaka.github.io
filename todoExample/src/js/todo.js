@@ -112,6 +112,7 @@ jQuery(function($){
         var _tempDown = $(event.target).prop('checked');
         var _tempText = $(event.target).parent().find('span').text();
         var _tempId = $(event.target).parent().find('span').attr('todoId');
+        _tempDown = (_tempDown) ? 1 : 0;
         _changeTodoItem(_tempText, _tempDown, _tempId, $(event.target).parent(), false);
       }
     },
