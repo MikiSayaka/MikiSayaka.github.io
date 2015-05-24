@@ -88,11 +88,12 @@ jQuery(function($){
       method: 'PUT'
     }).done(function(data){
       if (_switchTag) {
-        _targetParentObj.find('input[type=text]').remove();
+        var _tempEl = _targetParentObj.parent();
+        _targetParentObj.remove();
         if (_done) {
-          _targetParentObj.append('<span class="todoItemText done" todoId="' + _todoId +'">' + _wantTodo + '</span>');
+          _tempEl.append('<span class="todoItemText done" todoId="' + _todoId +'">' + _wantTodo + '</span>');
         } else {
-          _targetParentObj.append('<span class="todoItemText" todoId="' + _todoId +'">' + _wantTodo + '</span>');
+          _tempEl.append('<span class="todoItemText" todoId="' + _todoId +'">' + _wantTodo + '</span>');
         }
       }
     }).error(function(e){
