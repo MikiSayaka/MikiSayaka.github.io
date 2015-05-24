@@ -17,8 +17,15 @@
   .list-style;
 }
 
+.margin-position (@margin-top-bot: 0px, @margin-left-right: 0px) {
+  margin: @margin-top-bot @margin-left-right;
+}
 .button-area {
-  .center-position(10px) !important;
+  .margin-position(10px, 0px) !important;
+}
+
+.button-save {
+  .margin-position(10px, 10px) !important;
 }
 
 .checkboxTodo {

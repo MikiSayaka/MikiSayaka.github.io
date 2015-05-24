@@ -3,13 +3,14 @@ var gobalTemplate = [
   '<div class="ui input">',
   '<input type="text" id="todoThing" name="todoThing" value="" placeholder="write something here.">',
   '</div>',
-  '<div class="button-area ui buttons">',
+  '<div class="ui buttons button-area">',
   '<div class="ui button green">ALL</div>',
   '<div class="or"></div>',
   '<div class="ui button">Active</div>',
   '<div class="or"></div>',
   '<div class="ui button">Complete</div>',
   '</div>',
+  '<div class="ui primary button button-save">SAVE</div>',
   '{{#collection tag="div" id="todoUl" class="ui relaxed list"}}',
   '<div class="item">',
   '<div class="content">',
@@ -100,7 +101,7 @@ jQuery(function($){
   _view = new Thorax.View({
     collection: new Thorax.Collection(_getTodoList()),
     events: {
-      'click div.button': function(event) {
+      'click div.buttons div.button': function(event) {
         $(event.target).parent().find('div.button').removeClass('green');
         $(event.target).addClass('green');
         var _todoItems = $('div#todoUl');
@@ -133,11 +134,15 @@ jQuery(function($){
           }
         };
       },
-      'keydown input#todoThing': function(event) {
+      'keydown input#todoThing, click div.button-save': function(event) {
         var _tempText = $(event.target).val();
         if (event.keyCode == 13) {
           _putTodoItem(_tempText);
         }
+      },
+      'click div.button-save': function(event) {
+        var _tempText = $('#todoThing').val();
+        _putTodoItem(_tempText);
       },
       'keydown input#tempTodo': function(event) {
         var _tempText = $(event.target).val();
