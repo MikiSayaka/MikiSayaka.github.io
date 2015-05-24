@@ -19,10 +19,6 @@ var gobalTemplate = [
   '</div>',
   '{{/collection}}'
 ].join('');
-//  This is the button area template.
-var buttonArea = [
-  
-].join('');
 
 jQuery(function($){
   var _getTodoList;
@@ -126,12 +122,16 @@ jQuery(function($){
         var _tempEl = $(event.target);
         var _tempText = _tempEl.text();
         var _tempId = _tempEl.attr('todoId');
-        if (_tempEl.parents('div#todoUl').find('input#tempTodo').length > 0) {
-          alert('請先完成目前的編輯事項');
+        if(_tempEl.prev().prop('checked')) {
+          alert('本項目已經完成');
         } else {
-          _tempEl.parent().find('span').remove().end()
-            .append('<div class="ui input"><input type="text" value="' + _tempText + '" id="tempTodo" todoId="' + _tempId + '"></div>');
-        }
+          if (_tempEl.parents('div#todoUl').find('input#tempTodo').length > 0) {
+            alert('請先完成目前的編輯事項');
+          } else {
+            _tempEl.parent().find('span').remove().end()
+              .append('<div class="ui input"><input type="text" value="' + _tempText + '" id="tempTodo" todoId="' + _tempId + '"></div>');
+          }
+        };
       },
       'keydown input#todoThing': function(event) {
         var _tempText = $(event.target).val();
