@@ -8,7 +8,7 @@ var mainBowerFiles = require('main-bower-files');
 var js_dest_path = 'lib/js';
 var css_dest_path = 'lib/style';
 var img_dest_path = 'lib/img';
-var font_path = 'lib/font';
+var font_path = 'lib/style/themes/default/assests/fonts';
 
 var jsFilter = gulpFilter('*.js');
 var cssFilter = gulpFilter(['*.css', '*.css.map']);

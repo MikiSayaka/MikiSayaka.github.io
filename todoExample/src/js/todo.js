@@ -1,13 +1,27 @@
 //  This is the todo list dynamic template.
 var gobalTemplate = [
-  '<input type="text" id="todoThing" name="todoThing" value="">',
-  '<input type="button" value="Add to list">',
-  '{{#collection tag="ul" id="todoUl"}}',
-  '<li>',
-  '<input type="checkbox" id="done{{id}}" {{#done}}checked{{/done}}>',
-  '<span class="todoItemText" todoId="{{id}}">{{name}}</sapn>',
-  '</li>',
+  '<div class="ui input">',
+  '<input type="text" id="todoThing" name="todoThing" value="" placeholder="write something here.">',
+  '</div>',
+  '<div class="button-area ui buttons">',
+  '<div class="ui button green">ALL</div>',
+  '<div class="or"></div>',
+  '<div class="ui button">Active</div>',
+  '<div class="or"></div>',
+  '<div class="ui button">Complete</div>',
+  '</div>',
+  '{{#collection tag="div" id="todoUl" class="ui relaxed list"}}',
+  '<div class="item">',
+  '<div class="content">',
+  '<input type="checkbox" id="done{{id}}" {{#done}}checked{{/done}} class="checkboxTodo">',
+  '<span class="todoItemText {{#done}}done{{/done}}" todoId="{{id}}">{{name}}</span>',
+  '</div>',
+  '</div>',
   '{{/collection}}'
+].join('');
+//  This is the button area template.
+var buttonArea = [
+  
 ].join('');
 
 jQuery(function($){
@@ -16,6 +30,7 @@ jQuery(function($){
   var _putTodoItem;
   var _changeTodoItem;
   var _view;
+  var _buttonView;
 
   //  Load the todo list.
   _getTodoList = function() {
@@ -48,10 +63,12 @@ jQuery(function($){
       $('#todoThing').val('');
       var _id = callBackData.data;
       $('#todoUl').prepend(
-        '<li>' +
-        '<input type="checkbox" id="done' + _id + '">' +
-        '<span class="todoItemText" todoId="' + _id+ '">' + _wantTodo + '</sapn>' +
-        '</li>'
+        '<div class="item">' +
+        '<div class="content">' +
+        '<input type="checkbox" id="done' + _id + '" class="checkboxTodo">' +
+        '<span class="todoItemText todoId="' + _id + '">' + _wantTodo + '</span>' +
+        '</div>' +
+        '</div>'
       );
     }).error(function(e){
       alert('Okay, Huston, we\'ve had a problem here! \n We cannot insert todo item.');
@@ -72,7 +89,11 @@ jQuery(function($){
     }).done(function(data){
       if (_switchTag) {
         _targetParentObj.find('input[type=text]').remove();
-        _targetParentObj.append('<span class="todoItemText" todoId="' + _todoId +'">' + _wantTodo + '</span>');
+        if (_done) {
+          _targetParentObj.append('<span class="todoItemText done" todoId="' + _todoId +'">' + _wantTodo + '</span>');
+        } else {
+          _targetParentObj.append('<span class="todoItemText" todoId="' + _todoId +'">' + _wantTodo + '</span>');
+        }
       }
     }).error(function(e){
       alert('Okay, Huston, we\'ve had a problem here! \n We cannot change todo item.');
@@ -82,16 +103,34 @@ jQuery(function($){
   _view = new Thorax.View({
     collection: new Thorax.Collection(_getTodoList()),
     events: {
-      'click input[type=button]': function() {
-        var _wantTodo = $('#todoThing').val();
-        _putTodoItem(_wantTodo);
+      'click div.button': function(event) {
+        $(event.target).parent().find('div.button').removeClass('green');
+        $(event.target).addClass('green');
+        var _todoItems = $('div#todoUl');
+        switch($(event.target).text()){
+          case 'ALL':
+            _todoItems.find('div.item').show();
+          break;
+          case 'Active':
+            _todoItems.find('div.item').show();
+            _todoItems.find('div.item span.done').parents('div.item').hide();
+          break;
+          case 'Complete':
+            _todoItems.find('div.item').hide();
+            _todoItems.find('div.item span.done').parents('div.item').show();
+          break;
+        }
       },
       'click span.todoItemText': function(event) {
         var _tempEl = $(event.target);
         var _tempText = _tempEl.text();
         var _tempId = _tempEl.attr('todoId');
-        _tempEl.parent().find('span').remove().end()
-          .append('<input type="text" value="' + _tempText + '" id="tempTodo" todoId="' + _tempId + '">');
+        if (_tempEl.parents('div#todoUl').find('input#tempTodo').length > 0) {
+          alert('請先完成目前的編輯事項');
+        } else {
+          _tempEl.parent().find('span').remove().end()
+            .append('<div class="ui input"><input type="text" value="' + _tempText + '" id="tempTodo" todoId="' + _tempId + '"></div>');
+        }
       },
       'keydown input#todoThing': function(event) {
         var _tempText = $(event.target).val();
@@ -102,7 +141,7 @@ jQuery(function($){
       'keydown input#tempTodo': function(event) {
         var _tempText = $(event.target).val();
         var _tempId = $(event.target).attr('todoId');
-        var _tempDown = $(event.target).parent().find('input[type=checkbox]').prop('checked');
+        var _tempDown = $(event.target).parent().prev().prop('checked');
         if (event.keyCode == 13) {
           _tempDown = (_tempDown) ? 1 : 0;
           _changeTodoItem(_tempText, _tempDown, _tempId, $(event.target).parent(), true);
@@ -112,6 +151,7 @@ jQuery(function($){
         var _tempDown = $(event.target).prop('checked');
         var _tempText = $(event.target).parent().find('span').text();
         var _tempId = $(event.target).parent().find('span').attr('todoId');
+        $(event.target).next().toggleClass('done');
         _tempDown = (_tempDown) ? 1 : 0;
         _changeTodoItem(_tempText, _tempDown, _tempId, $(event.target).parent(), false);
       }

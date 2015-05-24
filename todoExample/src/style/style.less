@@ -1,0 +1,35 @@
+.center-position (@margin-top-bot: 0px) {
+  margin: @margin-top-bot auto;
+}
+.main-container {
+  .center-position(10px);
+  width: 400px;
+  #todoThing {
+    width: 400px;
+  }
+}
+
+.list-style (@type: none, @position: inside) {
+  list-style-type: @type;
+  list-style-position: @position;
+}
+.basicUl {
+  .list-style;
+}
+
+.button-area {
+  .center-position(10px) !important;
+}
+
+.checkboxTodo {
+  float: right;
+}
+
+.todoItemText {
+  width: 300px;
+}
+
+.done {
+  text-decoration: line-through;
+  color: #d9d9d9;
+}

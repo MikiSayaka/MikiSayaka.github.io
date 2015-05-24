@@ -20,6 +20,18 @@
     "underscore": "~1.8.3",
     "zepto": "~1.1.6",
     "handlebars": "~3.0.3",
-    "backbone": "~1.2.0"
+    "backbone": "~1.2.0",
+    "less": "~2.5.1",
+    "semantic-ui": "~1.12.3"
+  },
+  "overrides": {
+    "semantic-ui": {
+      "main": [
+        "dist/semantic.min.css",
+        "dist/semantic.min.js",
+        "dist/themes/default/assets/fonts/*",
+        "dist/themes/default/assets/images/*"
+      ]
+    }
   }
 }
