@@ -146,7 +146,7 @@ jQuery(function($){
           var _tempId = $('input#tempTodo').attr('todoId');
           var _tempDown = $('input#tempTodo').parent().prev().prop('checked');
           _tempDown = (_tempDown) ? 1 : 0;
-          _changeTodoItem(_tempText, _tempDown, _tempId, $(event.target).parent(), true);
+          _changeTodoItem(_tempText, _tempDown, _tempId, $('input#tempTodo').parent(), true);
         } else {
           var _tempText = $('#todoThing').val();
           _putTodoItem(_tempText);  
