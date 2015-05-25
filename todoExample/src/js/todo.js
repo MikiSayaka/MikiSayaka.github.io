@@ -137,7 +137,11 @@ jQuery(function($){
       'keydown input#todoThing': function(event) {
         var _tempText = $(event.target).val();
         if (event.keyCode == 13) {
-          _putTodoItem(_tempText);
+          if (_tempText != '') {
+            _putTodoItem(_tempText);
+          } else {
+            alert('請輸入待辦事項。');
+          }
         }
       },
       'click div.button-save': function(event) {
@@ -146,10 +150,18 @@ jQuery(function($){
           var _tempId = $('input#tempTodo').attr('todoId');
           var _tempDown = $('input#tempTodo').parent().prev().prop('checked');
           _tempDown = (_tempDown) ? 1 : 0;
-          _changeTodoItem(_tempText, _tempDown, _tempId, $('input#tempTodo').parent(), true);
+          if (_tempText != '') {
+            _changeTodoItem(_tempText, _tempDown, _tempId, $('input#tempTodo').parent(), true);
+          } else {
+            alert('請輸入待辦事項。');
+          }
         } else {
           var _tempText = $('#todoThing').val();
-          _putTodoItem(_tempText);  
+          if (_tempText != '') {
+            _putTodoItem(_tempText);
+          } else {
+            alert('請輸入待辦事項。');
+          }
         }
       },
       'keydown input#tempTodo': function(event) {
