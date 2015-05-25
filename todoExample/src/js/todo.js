@@ -170,7 +170,11 @@ jQuery(function($){
         var _tempDown = $(event.target).parent().prev().prop('checked');
         if (event.keyCode == 13) {
           _tempDown = (_tempDown) ? 1 : 0;
-          _changeTodoItem(_tempText, _tempDown, _tempId, $(event.target).parent(), true);
+          if (_tempText != '') {
+            _changeTodoItem(_tempText, _tempDown, _tempId, $(event.target).parent(), true);
+          } else {
+            alert('請輸入待辦事項。');
+          }
         }
       },
       'change input[type="checkbox"]': function(event) {
