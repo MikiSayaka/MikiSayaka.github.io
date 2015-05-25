@@ -123,8 +123,7 @@ jQuery(function($){
         var _tempEl = $(event.target);
         var _tempText = _tempEl.text();
         var _tempId = _tempEl.attr('todoId');
-        console.log(_tempId);
-        /*if(_tempEl.prev().prop('checked')) {
+        if(_tempEl.prev().prop('checked')) {
           alert('本項目已經完成');
         } else {
           if (_tempEl.parents('div#todoUl').find('input#tempTodo').length > 0) {
@@ -133,7 +132,7 @@ jQuery(function($){
             _tempEl.parent().find('span').remove().end()
               .append('<div class="ui input"><input type="text" value="' + _tempText + '" id="tempTodo" todoId="' + _tempId + '"></div>');
           }
-        };*/
+        };
       },
       'keydown input#todoThing': function(event) {
         var _tempText = $(event.target).val();
