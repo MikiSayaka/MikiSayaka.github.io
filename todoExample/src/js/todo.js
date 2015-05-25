@@ -134,15 +134,19 @@ jQuery(function($){
           }
         };
       },
-      'keydown input#todoThing, click div.button-save': function(event) {
+      'keydown input#todoThing': function(event) {
         var _tempText = $(event.target).val();
         if (event.keyCode == 13) {
           _putTodoItem(_tempText);
         }
       },
       'click div.button-save': function(event) {
-        var _tempText = $('#todoThing').val();
-        _putTodoItem(_tempText);
+        if ($('#main-container').find('input#tempTodo').length > 0) {
+          console.log('here');
+        } else {
+          var _tempText = $('#todoThing').val();
+          _putTodoItem(_tempText);  
+        }
       },
       'keydown input#tempTodo': function(event) {
         var _tempText = $(event.target).val();
