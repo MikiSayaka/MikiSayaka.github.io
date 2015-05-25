@@ -63,7 +63,7 @@ jQuery(function($){
         '<div class="item">' +
         '<div class="content">' +
         '<input type="checkbox" id="done' + _id + '" class="checkboxTodo">' +
-        '<span class="todoItemText todoId="' + _id + '">' + _wantTodo + '</span>' +
+        '<span class="todoItemText" todoId="' + _id + '">' + _wantTodo + '</span>' +
         '</div>' +
         '</div>'
       );
@@ -144,6 +144,9 @@ jQuery(function($){
         if ($('#main-container').find('input#tempTodo').length > 0) {
           var _tempText = $('input#tempTodo').val();
           var _tempId = $('input#tempTodo').attr('todoId');
+          var _tempDown = $('input#tempTodo').parent().prev().prop('checked');
+          _tempDown = (_tempDown) ? 1 : 0;
+          _changeTodoItem(_tempText, _tempDown, _tempId, $(event.target).parent(), true);
         } else {
           var _tempText = $('#todoThing').val();
           _putTodoItem(_tempText);  
