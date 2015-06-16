@@ -33,7 +33,7 @@ jQuery(function($){
   _getTodoList = function() {
     var _todoItem;
     $.ajax({
-      url: 'http://beta.fandorashop.com/api/todos',
+      url: '',
       dataType: 'JSON',
       async: false,
       method: 'GET'
@@ -52,7 +52,7 @@ jQuery(function($){
       name: _wantTodo
     };
     $.ajax({
-      url: 'http://beta.fandorashop.com/api/todos',
+      url: '',
       dataType: 'JSON',
       data: _todoData,
       method: 'POST'
@@ -79,7 +79,7 @@ jQuery(function($){
       name: _wantTodo
     };
     $.ajax({
-      url: 'http://beta.fandorashop.com/api/todos/' + _todoId,
+      url: '',
       dataType: 'JSON',
       data: _todoData,
       method: 'PUT'
