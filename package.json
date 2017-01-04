@@ -1,0 +1,36 @@
+{
+  "name": "Miki_Resume",
+  "version": "0.0.0",
+  "description": "Miki Sayaka's resume",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "~3.9.1",
+    "gulp-install": "~0.6.0",
+    "run-sequence": "~1.2.2",
+    "rimraf": "~2.5.4",
+    "main-bower-files": "~2.13.1",
+    "gulp-less": "~3.3.0",
+    "gulp-concat": "~2.6.1",
+    "gulp-minify-css": "~1.2.4",
+    "gulp-uglify": "~2.0.0",
+    "gulp-rename": "~1.2.2",
+    "bootstrap": "~3.3.7",
+    "jquery": "~3.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MikiSayaka/MikiSayaka.github.io.git"
+  },
+  "keywords": [
+    "miki_resume"
+  ],
+  "author": "Miki Sayaka",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/MikiSayaka/MikiSayaka.github.io/issues"
+  }
+}
