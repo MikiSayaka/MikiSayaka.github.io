@@ -20,11 +20,12 @@ var arr_styleLib = [
 ];
 var arr_jsLib = [
   './node_modules/jquery/dist/jquery.js',
-  './node_modules/bootstrap/dist/js/bootstrap.js'
+  './node_modules/bootstrap/dist/js/bootstrap.js',
+  './node_modules/vue/dist/vue.js'
 ];
 
 //{{{ TODO  全套  gulp excute
-gulp.task('excute', function() {
+gulp.task('go', function() {
   runSequence('less', 'minify_libStyle', 'minify_libJs', 'minify_style', 'minify_js');
 });
 //}}}
